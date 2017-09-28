@@ -1,0 +1,557 @@
+% ==================================
+%
+% PFC FRANCISCO SANCHEZ ARROYO
+%
+%===================================
+
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage[includehead,includefoot]{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2cm,bottom=2cm}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc} % Caracteres con acentos. 
+\usepackage{longtable}
+%\usepackage[spanish]{babel}
+\usepackage{latexsym}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{tabulary}
+\usepackage{amssymb}
+\usepackage{rotating} %rotar tablas y mas
+\usepackage{hyperref}
+% Poner colorlinks=false para la version impresa
+\hypersetup{colorlinks=false, linkcolor=red,citecolor=green,filecolor=magenta,urlcolor=cyan}
+%\usepackage{eurosym}
+\usepackage{titlepic} %imagenes en la portada
+\usepackage{lettrine}
+\usepackage{booktabs} \usepackage{tabulary} %Para ajustar anchos de tablas
+%% Cambia el formato de las cabeceras de las tablas y figuras
+%\usepackage[small,normal,bf,up]{caption2}
+%\renewcommand{\captionfont}{\small\itshape}
+\usepackage{verbatim}
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions} 
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+%\usepackage[active,tightpage,floats]{preview}
+%\setlength\PreviewBorder{5pt}%
+
+%\titlepic{\includegraphics[width=12cm]{storefront.pdf}}
+\title{Fabricating Labs\\
+\Huge \textbf{Guidelines for designing and planning Fab Labs, Makerspaces and Innovation Facilities}}
+\author{
+by Francisco Sanchez Arroyo\\
+The (Fabulous) Beach Lab
+}
+\date{Barcelona, September 2017}
+
+%=====================================================
+%=====================================================
+\begin{document}
+
+%\renewcommand{\tablename}{Taula}
+%\renewcommand{\figurename}{Figura}
+%\renewcommand{\listtablename}{Index de Taules}
+
+% Values for plots
+\newcommand{\D}{6} % number of dimensions (config option)
+\newcommand{\U}{5} % number of scale units (config option)
+
+\newdimen\R % maximal diagram radius (config option)
+\R=3.5cm 
+\newdimen\L % radius to put dimension labels (config option)
+\L=4.3cm
+% end values for plots
+
+
+\newcommand{\A}{360/\D} % calculated angle between dimension axes  
+
+\maketitle
+
+\tableofcontents % Tabla de contenido
+\clearpage
+%\pagenumbering{roman}
+
+
+%\addtocontents{toc}{\hfill Page \endgraf}
+%\addtocontents{toc}{\bfseries Agradecimientos\endgraf}%
+%\newpage
+%\listoffigures % Índice de figuras
+%\newpage 
+%\listoftables % Índice de tablas 
+%\newpage
+
+\pagenumbering{arabic}
+
+
+
+% Estilo de Cabecera y pie de pagina
+\pagestyle{fancy}
+\rhead{\textit{\textbf{Planning Fab Labs}}}
+\lhead{\textit{Guide for Identifying Workflows}}
+\cfoot{-Page \thepage -}
+
+\section*{License}
+This work is licensed under Creative Commons Attribution ShareAlike 4.0 International License (CC BY-SA 4.0). 
+
+\section*{Disclaimer}
+This guide is work in progress. It is not yet complete and might contain missing and/or incorrect information. Handle with care.
+
+\section{Introduction}
+
+Are you planning to set up a Fab Lab or Makerspace? The most common mistake is starting by placing the machines and then figuring out the rest. But did you think about the workflow around each machine? Are the other uses inside that room compatible with your process?  This Guide is intended to help identifying those workflows, cover the basic requirements and to avoid having future problems related to inadequate planning.
+
+\subsection{Levels of assessment}
+Planning a Fab Lab should be assessed in increasingly 4 levels of detail in that specific order:
+\begin{itemize}
+\item The machine or process. Each machine and process has its owns requirements.
+\item The workflow around that machine or process. A machine it's usually part of a bigger process or workflow, whose requirements you need to analyse too.
+\item The room containing that workflow must be analysed specially looking for incompatibilities regarding noise, dust, ventilation, etc.
+\item The building containing that room must be assessed as well. High frecuency vibrations created by digital fabrication machines can travel through the structure of the building causing trouble in very far areas from its origin.
+\end{itemize}
+
+
+\subsection{List of requirements to be assessed}
+For each of the above levels of assessment we will identify the following requirements:
+\begin{itemize}
+\item Lighting
+\item HVAC systems
+\item Piping and plumbing
+\item Mechanical requirements
+\item Power and electrical requirements
+\item Materials management (storage and locking requirements)
+\item Waste management
+\item Health and Safety
+\item Ergonomy
+\end{itemize}
+
+\clearpage
+  
+\section{Processes and Workflows found in a Fab Lab}
+
+\subsection{Vinyl Cutting}
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={red!10, red!25,red!40, red!55},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Materials (1),Machine (2) \\ Roland GX 24, Postprocess\\ (3), Waste (4)}
+{below of sequence-item1/{Raw and scrap material},below of sequence-item2/Reusable Scrap}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\smartdiagramconnect{-to}{sequence-item2/additional-module2}
+\vspace{1cm}
+\end{figure}
+\subsubsection*{Notes}
+\begin{itemize}
+\item (1) Additional items: X-acto, scissors, masking tape, vinyl gloves
+\item (2) This area requires also space for a computer for design and operation tasks. Provide enough power plugs (minimum 3)
+\item (2) The back of the machine must be reachable
+\item (2) Additional items: Tweezers, X-acto, scissors
+\item (3) This area requires the witdh of the biggest roll that the machine can handle and plenty of light
+\item (3) Additional items: Tweezers, X-acto, scissors
+\item (4) Waste: Paper backing, vinyl, Copper film, epoxy film.
+\end{itemize}
+\subsubsection*{Risks}
+\begin{itemize}
+\item Hand trapped by machine movement
+\item Cuts with sharp objects
+\end{itemize}
+\subsubsection*{Personal Protective Elements (PPE)}
+\begin{itemize}
+\item None required
+\end{itemize}
+\clearpage
+
+\subsection{3D Printing FDS}
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={red!10, red!25,red!40, red!55},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Materials (1),Machine (2) \\ 3D printer, Postprocess\\ (3), Waste (4)}
+{below of sequence-item1/Filament}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\vspace{1cm}
+\end{figure}
+\subsubsection*{Notes}
+\begin{itemize}
+\item (1) Filaments require low moisture environment
+\item (3) Additional items: Wire cutter, spatula
+\item (2) Machine requires rear inspection
+\item (2) Power requirements: Most 3D printers don't require a computer. Newest require network connection.
+\item (2) HVAC direct airflow or low room temperature might affect buildplate adhesion and layer cooling
+\item (3) Additional items: X-acto, pliers, wire cutter
+\item (4) PLA and ABS based plastics
+\end{itemize}
+\subsubsection*{Risks}
+\begin{itemize}
+\item Hand trapped by machine movement
+\item Burn by noozle or buildplate
+\item Hot plastic splatters caused by moisture inside filament
+\end{itemize}
+\subsubsection*{Personal Protective Elements (PPE)}
+\begin{itemize}
+\item Eye protection is recommended for kids
+\end{itemize}
+\clearpage
+
+
+\subsection{Laser Cutting}
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={red!10, red!25,red!40, red!55},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Materials (1),Machine (2) \\ Laser Cutter, Postprocess\\ (3), Waste (4)}
+{below of sequence-item1/{Raw and scrap material},below of sequence-item2/Reusable Scrap}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\smartdiagramconnect{-to}{sequence-item2/additional-module2}
+\vspace{1cm}
+\end{figure}
+\subsubsection*{Notes}
+\begin{itemize}
+\item (1) Maintaining order of scrap material is important
+\item (1) Cardboard and wood are sensitive to moisture
+\item (2) The room requires ventilation and air renovation from exterior
+\item (2) The laser is usually a noisy environment, specially if there is also a filter installed
+\item (2) It is required also space for computer for design and operation of the laser
+\item (2) Power requirements: Provide at least 6 power plugs
+\item (3) Clean up scrap material and store it in (1)
+\item (4) Cardboard, wood, plastics
+\end{itemize}
+\subsubsection*{Risks}
+\begin{itemize}
+\item Health issues due to long-term exposure to fumes 
+\item Cuts by sharp edges of material
+\end{itemize}
+\subsubsection*{Personal Protective Elements (PPE)}
+\begin{itemize}
+\item Recommended gloves for handling material and scrap
+\end{itemize}
+\clearpage
+
+
+\subsection{Electronics Production}
+\begin{figure}[h]
+\centering
+\smartdiagramset{
+    set color list={red!10, red!25,red!40, red!55, red!70},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Design (1),Machine (2) \\ SRM 20, Stuff (3), Test (4),Waste (5)}
+{below of sequence-item2/{FR1 boards and milling bits},below of sequence-item3/Electronic components}
+\smartdiagramconnect{to-}{sequence-item2/additional-module1}
+\smartdiagramconnect{to-}{sequence-item3/additional-module2}
+\vspace{1cm}
+\end{figure}
+\subsubsection*{Notes}
+\begin{itemize}
+\item (1) Area for a computer next to the machine for design and machine operation. 3 power plugs
+\item (2) Additional items: Spatula, double-side tape, X-acto, Allen keys for milling bits, magnets
+\item (3) 2 seats area for soldering operators
+\item (3) Easily accessible cabinets with electronic components
+\item (3) This area requires ventilation and air renovation, plenty of light and magnifying equipment
+\item (3) Power requirements for 2 seats: 6 plugs
+\item (4) 2 seats area for power supply, oscilloscope and function generator. Power requirements 6 plugs
+\item (5) Waste: Paper dust, FR1 boards, broken bits, electronic components
+\end{itemize}
+\subsubsection*{Risks}
+\begin{itemize}
+\item Fumes inhalation
+\item Electric shock
+\item Cuts by sharp objects
+\item Burns by soldering iron
+\end{itemize}
+\subsubsection*{Personal Protective Elements (PPE)}
+\begin{itemize}
+\item Gloves for removing boards and soldering
+\item Eye protection for soldering
+\item Isolating shoes
+\end{itemize}
+\clearpage
+
+
+\subsection{Molding and Casting}
+Molding and casting is a 3-phase process that can be done at different time and in separated rooms
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={red!10, red!25,red!40, red!55},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Materials (1),Machine (2) \\ SRM 20}
+{below of sequence-item1/{Machinable wax},below of sequence-item2/Reusable Wax chips}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\smartdiagramconnect{-to}{sequence-item2/additional-module2}
+\vspace{1cm}
+\end{figure}
+
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={green!10, green!25,green!40},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Preprocess (3),Molding (4), Waste (5)}
+{below of sequence-item1/{Silicons and Rubbers},below of sequence-item2/Reusable Soft Mold}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\smartdiagramconnect{-to}{sequence-item2/additional-module2}
+\vspace{1cm}
+\end{figure}
+
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={yellow!10, yellow!25,yellow!40},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Preprocess (6),Casting (7), Waste (8)}
+{below of sequence-item1/{Casting Materials}}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\vspace{1cm}
+\end{figure}
+
+\subsubsection*{Notes}
+\begin{itemize}
+\item (1)(2) Phase 1 can be executed in the same room as electronics production. But it requires to clean and vacuum the machine and surrounding area prior to milling the wax. This phase produces virtually zero waste. A dedicated vacuum machine or a clean brush is recommended to pick up all the wax chips for future use.
+\item Phase 2 and Phase 3 can be executed in a separate room. These phases require a ventilated area and access to water and a sink.
+\item (3) Refer to MSDS for important health and safety information
+\item (4) Store reusable molds in the same storage room as silicons
+\item (5) Waste: Pots, gloves, sticks, etc, stained with silicons and rubbers
+\item (8) Waste: Pots, gloves, sticks, etc, stained with casting materials
+\end{itemize}
+\subsubsection*{Risks}
+\begin{itemize}
+\item Inhalation of dangerous volatile substances
+\item Eye, skin and lung irritation
+\end{itemize}
+\subsubsection*{Personal Protective Elements (PPE)}
+\begin{itemize}
+\item Lab coat, vinyl gloves and eye protection during the molding and casting phases
+\item Masks and respirators upon the MSDS specs of the materials
+\end{itemize}
+\clearpage
+
+
+\subsection{Composites}
+Composites is a 2-phase process that can be done at different time and in separated rooms
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={red!10, red!25,red!40, red!55},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Materials (1),Machine (2) \\ Shopbot, Waste (3)}
+{below of sequence-item1/{High Density Foam}}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\vspace{1cm}
+\end{figure}
+
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={green!10, green!25,green!40},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Preprocess (4),Composite Layout (5), Waste (6)}
+{below of sequence-item1/{Fabrics and Resins},below of sequence-item2/Reusable Mold}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\smartdiagramconnect{-to}{sequence-item2/additional-module2}
+\vspace{1cm}
+\end{figure}
+
+
+\subsubsection*{Notes}
+\begin{itemize}
+\item (2) Room containing the Shopbot is a very noisy, dusty and dangerous environment. Recommended separate room.
+\item (2) Room containing the Shopbot must have ventilation and filtration system. Refer to calculations in following sections.
+\item (3) Waste: Foam dust, high density foam
+\item (4) This phase requires a ventilated area and access to water and a sink
+\item (5) Store reusable molds in (1)
+\item (6) Waste: Sand paper and resin dust
+\end{itemize}
+\subsubsection*{Risks}
+\begin{itemize}
+\item Fine dust particles inhalation in milling phase
+\item Fast spinning cutting tool in milling phase
+\item Debris in milling phase
+\item Noise damage
+\item Being trapped by moving machine or spindle
+\item Eye, skin and lung irritation due to resins
+\end{itemize}
+\subsubsection*{Personal Protective Elements (PPE)}
+\begin{itemize}
+\item Eye, ear protection
+\item Appropriate gloves for handling materials
+\item Coat, eye protection, gloves and mask/respirators during composite layout phase
+\end{itemize}
+\clearpage
+
+
+\subsection{Large CNC}
+\begin{figure}[h]
+
+\centering
+\smartdiagramset{
+    set color list={red!10, red!25,red!40, red!55},
+    sequence item border color=black,
+    sequence item text color=black,
+    sequence item border size=1.2\pgflinewidth,
+    sequence item font size=\scriptsize\sffamily,
+    additions={
+        additional item shape=rectangle,
+        additional item fill color=gray!20,
+        additional item border color=black,
+        additional arrow line width=2pt,
+        additional arrow tip=to,
+        additional arrow color=black,
+        additional item font=\scriptsize\sffamily,
+      }
+}
+\smartdiagramadd[sequence diagram]{Materials (1),Machine (2) \\ Shopbot, Waste (3)}
+{below of sequence-item1/{Wood}}
+\smartdiagramconnect{to-}{sequence-item1/additional-module1}
+\vspace{1cm}
+\end{figure}
+\subsubsection*{Notes}
+\begin{itemize}
+\item (2) Room containing the Shopbot is a very noisy, dusty and dangerous environment. Recommended separate room.
+\item (2) Room containing the Shopbot must have ventilation and filtration system. Refer to calculations in following sections.
+\end{itemize}
+\subsubsection*{Risks}
+\begin{itemize}
+\item Fine dust particles inhalation in milling phase
+\item Fast spinning cutting tool in milling phase
+\item Debris in milling phase
+\item Being trapped by moving machine or spindle
+\end{itemize}
+\subsubsection*{Personal Protective Elements (PPE)}
+\begin{itemize}
+\item Eye, ear protection
+\item Appropriate gloves for handling materials 
+\end{itemize}
+
+\section{Technical aspects}
+
+\section{What's next?}
+
+
+\end{document}
