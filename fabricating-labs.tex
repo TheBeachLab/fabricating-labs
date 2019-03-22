@@ -11,19 +11,20 @@
 \usepackage[utf8]{inputenc} % Caracteres con acentos. 
 \usepackage{longtable}
 %\usepackage[spanish]{babel}
+\usepackage[hidelinks,pdfencoding=auto]{hyperref}
 \usepackage{latexsym}
 \usepackage{fancyhdr}
 \usepackage{amsmath}
 \usepackage{tabulary}
 \usepackage{amssymb}
 \usepackage{rotating} %rotar tablas y mas
-\usepackage{hyperref}
 \usepackage{lscape}
 % Poner colorlinks=false para la version impresa
 \hypersetup{colorlinks=false, linkcolor=red,citecolor=green,filecolor=magenta,urlcolor=cyan}
 %\usepackage{eurosym}
 \usepackage{titlepic} %imagenes en la portada
 \usepackage{lettrine}
+\usepackage{schemata}
 \usepackage{booktabs} \usepackage{tabulary} %Para ajustar anchos de tablas
 %% Cambia el formato de las cabeceras de las tablas y figuras
 %\usepackage[small,normal,bf,up]{caption2}
@@ -32,9 +33,9 @@
 \usepackage{smartdiagram}
 \usesmartdiagramlibrary{additions} 
 \usepackage{tikz}
-\usetikzlibrary{shapes}
 %\usepackage[active,tightpage,floats]{preview}
 %\setlength\PreviewBorder{5pt}%
+
 
 %\titlepic{\includegraphics[width=12cm]{storefront.pdf}}
 \title{Fabricating Labs\\
@@ -55,7 +56,7 @@ The (Fabulous) Beach Lab
 
 % Values for plots
 \newcommand{\D}{6} % number of dimensions (config option)
-\newcommand{\U}{5} % number of scale units (config option)
+%\newcommand{\U}{5} % number of scale units (config option)
 
 \newdimen\R % maximal diagram radius (config option)
 \R=3.5cm 
@@ -64,7 +65,6 @@ The (Fabulous) Beach Lab
 % end values for plots
 
 
-\newcommand{\A}{360/\D} % calculated angle between dimension axes  
 
 \maketitle
 
@@ -860,7 +860,7 @@ Hanging AC power outlets. Consider having tables with full integrated electric a
 \section{Lab management}
 
 \subsection{Fab labs revenue models}
-Fablabs have been struggling with sucessfull business models since their creation
+Fablabs have been struggling with sucessfull business models since their creation.\\
 
 \section{Becoming a Super Lab}
 At some point your lab might naturally jump to the next level and provide the community with a unique space
